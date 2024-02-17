@@ -1,4 +1,4 @@
-local kind = require('kind')
+local kind = require('user.kind')
 
 lvim.leader = "space"
 
