@@ -75,5 +75,12 @@ lvim.plugins ={
         default_mappings = true
       }
     end
+  },
+  {
+    "sindrets/diffview.nvim"
+  },
+  {
+    "tpope/vim-sleuth",
+    lazy = false
   }
 }
