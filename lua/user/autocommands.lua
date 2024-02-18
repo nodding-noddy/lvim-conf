@@ -1,26 +1,22 @@
-local U = require("utils.colors")
-local Colors = require("utils.pallets")
-
 lvim.autocommands = {
   {
     { "ColorScheme" },
     {
       pattern = "*",
       callback = function()
-        vim.api.nvim_set_hl(0, "diffAdded", { fg = Colors.green, underline = false, bold = false })
-        vim.api.nvim_set_hl(0, "diffRemoved", { fg = Colors.red, underline   = false, bold = false })
-        vim.api.nvim_set_hl(0, "diffChanged", { fg = Colors.blue, underline  = false, bold = false })
-        vim.api.nvim_set_hl(0, "diffOldFile", { fg = Colors.yellow, underline  = false, bold = false })
-        vim.api.nvim_set_hl(0, "diffNewFile", { fg = Colors.peach, underline   = false, bold = false })
-        vim.api.nvim_set_hl(0, "diffFile", { fg = Colors.blue, underline   = false, bold = false })
-        vim.api.nvim_set_hl(0, "diffLine", { fg = Colors.overlay, underline   = false, bold = false })
-        vim.api.nvim_set_hl(0, "diffIndexLine", { fg = Colors.teal, underline  = false, bold = false })
-        vim.api.nvim_set_hl(0, "DiffAdd", { bg = U.darken(Colors.green, 0.18, Colors.base), underline = false, bold = false}) -- diff mode: Added line |diff.txt|
-        vim.api.nvim_set_hl(0, "DiffChange", { bg = U.darken(Colors.blue, 0.07, Colors.base), underline = false, bold = false}) -- diff mode: Changed line |diff.txt|
-        vim.api.nvim_set_hl(0, "DiffDelete", { bg = U.darken(Colors.red, 0.18, Colors.base), underline = false, bold = false}) -- diff mode: Deleted line |diff.txt|
-        vim.api.nvim_set_hl(0, "DiffText", { bg = U.darken(Colors.blue, 0.30, Colors.base), underline = false, bold = false}) -- diff mode: Changed text within a changed line |diff.txt|
+        vim.cmd([[hi diffAdded guifg=#a6e3a1]])
+        vim.cmd([[hi diffRemoved guifg=#f38ba8]])
+        vim.cmd([[hi diffChanged guifg=#89b4fa]])
+        vim.cmd([[hi diffOldFile guifg=#f9e2af]])
+        vim.cmd([[hi diffNewFile guifg=#fab387]])
+        vim.cmd([[hi diffFile guifg=#89b4fa]])
+        vim.cmd([[hi diffLine guifg=#9399b2]])
+        vim.cmd([[hi diffIndexLine guifg=#94e2d5]])
+        vim.cmd([[hi DiffAdd guibg=#364143]]) -- diff mode: Added line |diff.txt|
+        vim.cmd([[hi DiffChange guibg=#25293C]]) -- diff mode: Changed line |diff.txt|
+        vim.cmd([[hi DiffDelete guibg=#443244]]) -- diff mode: Deleted line |diff.txt|
+        vim.cmd([[hi DiffText guibg=#3E4B6B]]) -- diff mode: Changed text within a changed line |diff.txt|
       end,
     },
   },
 }
-
