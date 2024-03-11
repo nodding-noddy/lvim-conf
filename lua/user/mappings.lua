@@ -32,4 +32,18 @@ buffer_mappings.normal_mode["gf"] = {
   kind.cmp_kind.Reference .. " Telescope Frecency"
 }
 
+-- Format visually selected text
+buffer_mappings.visual_mode["<leader>lf"] = {
+  function()
+    vim.lsp.buf.format({
+      async = false,
+      range = {
+        ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+        ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+      }
+    })
+  end,
+  "Format selected text."
+}
+
 vim.keymap.set('n', 'gn', ":tabe %<CR>")
