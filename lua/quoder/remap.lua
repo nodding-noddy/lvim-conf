@@ -71,7 +71,11 @@ end)
 --   vim.lsp.buf.format()
 -- end)
 
-vim.keymap.set("n", "<leader>lf", "<cmd>Format<cr>")
+vim.keymap.set("n", "<leader>lf", function ()
+  require("conform").format({
+    lsp_format = "fallback"
+  })
+end)
 vim.keymap.set("n", "<leader>st", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "-", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
@@ -108,7 +112,6 @@ vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>")
 -- DiffView
 vim.keymap.set("n", "<leader>dwo", "<cmd>DiffviewOpen<CR>")
 vim.keymap.set("n", "<leader>dwc", "<cmd>DiffviewClose<CR>")
-vim.keymap.set("n", "<leader>dwf", "<cmd>DiffviewToggleFiles<CR>")
 vim.keymap.set("n", "<leader>dwr", "<cmd>DiffviewRefresh<CR>")
 vim.keymap.set("n", "<leader>dww", function ()
   local diffOpts = vim.api.nvim_exec("set diffopt?", true)
